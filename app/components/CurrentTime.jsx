@@ -5,22 +5,29 @@ var Controls = require('Controls');
 var Timer = React.createClass({
     getInitialState: function () {
         return {
-            hours: 0,
-            minutes: 0
+            hours: "",
+            minutes: ""
+        }
+    },
+    formatNum: function (number) {
+        if (number < 10) {
+            return "0" + number.toString();
+        } else {
+            return number.toString();
         }
     },
     componentWillMount: function () {
         this.timer = setInterval(() => {
             var d = new Date();
             var t = d.getTime();
-            var hour = d.getHours(); 
-            var minute = d.getMinutes();
+            var hour = this.formatNum(d.getHours()); 
+            var minute = this.formatNum(d.getMinutes());
             console.log(hour);
             this.setState({
                 hours: hour,
                 minutes: minute
             });
-        }, 10000);
+        }, 1000);
     },
     render: function () {
         var {hours, minutes} = this.state;
