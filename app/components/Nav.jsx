@@ -25,6 +25,15 @@ var Nav = () => {
                             CountDown
                         </Link>
                     </li>
+                    <li>
+                        <Link 
+                            to="/currentTime" 
+                            activeClassName="active-link" 
+                            activeStyle={{fontWeight: 'bold'}}
+                        >
+                            CurrentTime
+                        </Link>
+                    </li>
                 </ul>
             </div>
 
