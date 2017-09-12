@@ -32,8 +32,8 @@ var Timer = React.createClass({
     render: function () {
         var {hours, minutes} = this.state;
         return (
-            <div>
-                <h1 className="page-title">Current Time</h1>
+            <div className="time-box">
+                <h1 className="time-title">Current Time</h1>
                 <span className="time-text">
                     {hours}:{minutes}
                 </span>
