@@ -2,11 +2,14 @@ var React = require('react');
 var Clock = require('Clock');
 var Controls = require('Controls');
 
-var Timer = React.createClass({
+var CurrentTime = React.createClass({
     getInitialState: function () {
         return {
-            hours: "",
-            minutes: ""
+            hour: "",
+            minute: "",
+            month: "",
+            date: "",
+            day: ""
         }
     },
     formatNum: function (number) {
@@ -17,29 +20,36 @@ var Timer = React.createClass({
         }
     },
     componentWillMount: function () {
+        var month = ["Jan","Feb","Mar","Apr","May","Jun",
+            "Jul","Aug","Sep","Oct","Nov","Dec"];
+        var day = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
         this.timer = setInterval(() => {
-            var d = new Date();
-            var t = d.getTime();
-            var hour = this.formatNum(d.getHours()); 
-            var minute = this.formatNum(d.getMinutes());
-            console.log(hour);
+            var raw = new Date();
             this.setState({
-                hours: hour,
-                minutes: minute
+                hour: this.formatNum(raw.getHours()),
+                minute: this.formatNum(raw.getMinutes()),
+                month:month[raw.getMonth()],
+                date:raw.getDate().toString(),
+                day: day[raw.getDay()]
             });
         }, 1000);
     },
     render: function () {
-        var {hours, minutes} = this.state;
+        var {hour, minute, month, date, day} = this.state;
         return (
-            <div className="time-box">
+            <div className="time-container">
                 <h1 className="time-title">Current Time</h1>
-                <span className="time-text">
-                    {hours}:{minutes}
-                </span>
+                <div className="time-box">
+                    <span className="time-text">
+                        {hour}:{minute}
+                    </span>
+                    <span className="date-text">
+                        {month}-{date}-{day}
+                    </span>
+                </div>
             </div>
         )
     }
 });
 
-module.exports = Timer;
+module.exports = CurrentTime;

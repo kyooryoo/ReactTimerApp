@@ -16,8 +16,8 @@ var Clock = React.createClass({
         }
 
         if (minutes < 10) {
-            minutes = '0' + minutes
-;        }
+            minutes = '0' + minutes;
+        }
 
         return minutes + ':' + seconds;
     },

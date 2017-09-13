@@ -1,3 +1,18 @@
+.time-container {
+    background-color: $time-background-color;
+    position:fixed;
+    width: 100%;
+    height: 100%;
+}
+.time-box {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    padding-bottom: 2em;
+}
+.time-title {
+    padding: 2rem 0;
+    text-align: center;
+    color: $time-text-color;
+}
 .time-text {
     color: $time-text-color;
     font-size: 20rem;
@@ -5,12 +20,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    line-height: 1;
 }
-.time-box {
-    background-color: #000000;
-}
-.time-title {
-    padding: 2rem 0;
-    text-align: center;
+.date-text {
     color: $time-text-color;
+    font-size: 8rem;
+    font-weight: 300;
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
 }
